@@ -93,7 +93,7 @@ wget https://raw.githubusercontent.com/JinfengChen/Scripts/master/Shell/bedGraph
 /home/ubuntu/bin
 chmod +x bedGraph2bigwig.sh
 
-conda install r-pheatmap r-optparse r-data.table
+conda install r-pheatmap r-optparse r-data.table r-getopt
 conda install bioconductor-genomeinfodb bioconductor-rtracklayer
 
 source("https://bioconductor.org/biocLite.R")
