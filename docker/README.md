@@ -1,5 +1,7 @@
 # Docker containers for SCREW and SIDEARM workflows
 
+https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
+
 The goal is to provide Docker containers for running individual tools in **SCREW** and **SIDEARM** workflows.
 This github repository contains a set of **Dockerfile** descriptors and is designed to be linked by **Dockstore**.
 In the future changes in this repository will automatically trigger a rebuild process in **Dockstore**.
