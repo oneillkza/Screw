@@ -1,11 +1,43 @@
 
-FROM quay.io/ncbi_hackathons/epigenomics_base
-
-# ENV VAR VALUE
-ENV PATH /home/ubuntu/Epigenomics_CWL/bin:/home/ubuntu/bin:/home/ubuntu/anaconda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-ENV HOME /home/ubuntu
-WORKDIR /home/ubuntu
+FROM quay.io/epigenomicscrew/base
 
 USER ubuntu
+WORKDIR /home/ubuntu
+ENV HOME /home/ubuntu
 
-CMD bash
+RUN git clone https://github.com/Epigenomics-Screw/Screw.git
+RUN mkdir /home/ubuntu/bin
+RUN wget -q https://raw.githubusercontent.com/JinfengChen/Scripts/master/Shell/bedGraph2bigwig.sh -O /home/ubuntu/bin/bedGraph2bigwig.sh
+RUN chmod +x /home/ubuntu/bin/bedGraph2bigwig.sh
+
+ENV PATH $PATH:/home/ubuntu/Screw/bin:/home/ubuntu/bin
+
+RUN conda install r-pheatmap r-optparse r-data.table r-getopt
+RUN conda install bioconductor-genomeinfodb bioconductor-rtracklayer
+RUN conda clean -a
+
+RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
+# RUN Rscript -e "install.packages('yhatr')"
+# RUN Rscript -e "install.packages('ggplot2')"
+# RUN Rscript -e "install.packages('plyr')"
+# RUN Rscript -e "install.packages('reshape2')"
+# RUN Rscript -e "install.packages('forecast')"
+# RUN Rscript -e "install.packages('stringr')"
+# RUN Rscript -e "install.packages('lubridate')"
+# RUN Rscript -e "install.packages('randomForest')"
+# RUN Rscript -e "install.packages('rpart')"
+# RUN Rscript -e "install.packages('e1071')"
+# RUN Rscript -e "install.packages('kknn')"
+
+RUN Rscript -e "source('https://bioconductor.org/biocLite.R'); biocLite('LOLA'); biocLite('rGREAT')"
+
+# Methpipe
+RUN wget -q http://smithlabresearch.org/downloads/methpipe-3.4.3.tar.bz2 -O methpipe.tar.bz2
+RUN tar xvjf methpipe.tar.bz2
+WORKDIR /home/ubuntu/methpipe-3.4.3
+RUN export CPATH=/usr/include/gsl
+RUN export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/
+RUN make all && make install
+RUN cp bin/* /home/ubuntu/bin/
+WORKDIR /home/ubuntu
+RUN rm -rf methpipe*
