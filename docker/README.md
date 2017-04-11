@@ -1,10 +1,9 @@
 # Docker containers for SCREW and SIDEARM workflows
 
-https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
-
 The goal is to provide Docker containers for running individual tools in **SCREW** and **SIDEARM** workflows.
 This github repository contains a set of **Dockerfile** descriptors and is designed to be linked by **Dockstore**.
 In the future changes in this repository will automatically trigger a rebuild process in **Dockstore**.
+Docker files should follow [best practices](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/).
 
 ![](https://github.com/ga4gh/dockstore/wiki/dockstore_overview.png)
 
@@ -17,14 +16,10 @@ This section tells CWL runner to pull docker images from a public **quay.io** or
 The main path to container repositories is https://quay.io/organization/ncbi_hackathons
 
 We created a hierarchy of **base** docker containers in order to simplify their maintenance:
-* linux_base (ubuntu xenial)
-* genomics_base (linux_base)
+* base (ubuntu xenial) - development packages, R and Python
+* screw (base) - single cell BS methylation data analysis software
 
-* epigenomics_base (genomics_base)
-* screw (epigenomics_base)
-
-* sra_base (genomics_base)
-* sidearm (sra_base)
+* sidearm (base) temporary container
 
 ## Data containers
 In addition we provide several **data** containers that can be combined with tool containers.
