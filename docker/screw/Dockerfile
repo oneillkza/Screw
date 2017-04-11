@@ -12,7 +12,7 @@ RUN chmod +x /home/ubuntu/bin/bedGraph2bigwig.sh
 
 ENV PATH $PATH:/home/ubuntu/Screw/bin:/home/ubuntu/bin
 
-RUN conda install r-pheatmap r-optparse r-data.table
+RUN conda install r-pheatmap r-optparse r-data.table r-getopt
 RUN conda install bioconductor-genomeinfodb bioconductor-rtracklayer
 RUN conda clean -a
 
