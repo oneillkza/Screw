@@ -39,5 +39,7 @@ RUN export CPATH=/usr/include/gsl
 RUN export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/
 RUN make all && make install
 RUN cp bin/* /home/ubuntu/bin/
-WORKDIR /home/ubuntu
-RUN rm -rf methpipe*
+RUN mkdir -p /home/ubuntu/bin
+RUN chown -R ubuntu:ubuntu /home/ubuntu
+RUN mv bin/* /home/ubuntu/bin/
+RUN export PATH=$PATH:/home/ubuntu/bin
