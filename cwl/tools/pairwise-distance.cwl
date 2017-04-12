@@ -3,7 +3,7 @@ class: CommandLineTool
 baseCommand: pairwise-distance.sh
 hints:
   - class: DockerRequirement
-    dockerPull: "quay.io/neksa/screw-tool"
+    dockerPull: "quay.io/epigenomicscrew/screw"
 stdout: pairwise-euc.txt
 inputs:
   pairDirectory:
