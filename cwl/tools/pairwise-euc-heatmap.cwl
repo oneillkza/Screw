@@ -2,7 +2,7 @@ cwlVersion: v1.0
 class: CommandLineTool
 hints:
   - class: DockerRequirement
-    dockerPull: "quay.io/neksa/screw-tool"
+    dockerPull: "quay.io/epigenomicscrew/screw"
 baseCommand: pairwise-euc-heatmap.R
 inputs:
   pairwiseTable:
