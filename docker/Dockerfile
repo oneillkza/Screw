@@ -54,6 +54,15 @@ USER ubuntu
 git clone https://github.com/NCBI-Hackathons/Epigenomics_CWL.git
 
 
+Install the following:
+
+magicblast (>= 1.2.0)
+samtools (>= 1.4)
+bioperl (>= 1.7)
+cutadapt (>= 1.12)
+abyss (>= 2.0.2)
+cwltool (>= 1.0.20170309164828)
+
 #     1  bash /root/
 #     2  bash Miniconda2-latest-Linux-x86_64.sh
 #     3  pip install cwltool
