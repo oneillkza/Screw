@@ -3,7 +3,7 @@ class: CommandLineTool
 baseCommand: interconverter.sh
 hints:
   - class: DockerRequirement
-    dockerPull: "quay.io/neksa/screw-tool"
+    dockerPull: "quay.io/epigenomicscrew/screw"
 arguments: ["-d", $(runtime.outdir)]
 inputs:
   toConvert:
