@@ -1,0 +1,9 @@
+language: python
+sudo: required
+services:
+  - docker
+install:
+  - pip install -U setuptools
+  - pip install cwl-runner
+script:
+  - cwltool cwl/tools/preprocess.cwl --toConvert test_data/GSM1589192_K562.1_2.txt.chr19

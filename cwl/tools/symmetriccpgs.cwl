@@ -4,7 +4,7 @@ baseCommand: symmetriccpgs.sh
 arguments: ["-d", $(runtime.outdir)]
 hints:
   - class: DockerRequirement
-    dockerPull: "quay.io/neksa/screw-tool"
+    dockerPull: "quay.io/epigenomicscrew/screw"
 
 inputs:
   toCombine:
