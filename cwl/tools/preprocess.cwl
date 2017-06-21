@@ -12,7 +12,12 @@ outputs:
   combined: 
     type: File
     outputSource: mergeSymmetric/combined
-
+  methBW:
+    type: File
+    outputSource: methylationBigWIG/methBW
+  covBW:
+    type: File
+    outputSource: methylationBigWIG/covBW
 
 steps:
   convertMethylation:
@@ -25,3 +30,9 @@ steps:
     in:
       toCombine: convertMethylation/converted
     out: [combined]
+  methylationBigWIG:
+    run: methToBigWig.cwl
+    in: 
+      toConvert: mergeSymmetric/combined
+    out: [methBW, covBW]
+    
