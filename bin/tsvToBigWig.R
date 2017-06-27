@@ -14,10 +14,8 @@ spec <- matrix(c(
 ), byrow=TRUE, ncol=4)
 
 opt = getopt(spec)
-length(opt$ARGS)
 in.file <- opt$infile
 out.dir <- opt$outdir
-print(opt)
 
 if(is.null(in.file)|is.null(out.dir))
 {
