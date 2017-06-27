@@ -1,12 +1,12 @@
-#!/usr/bin/Rscript
+#!/usr/bin/env Rscript
 
 
 # Outstanding issues:
 # Test whether guessing seqlengths creates erroneous BigWIGs (do they load in IGV/GViz/whatever)
 
-
 library(getopt)
-
+library(data.table)
+library(rtracklayer)
 
 spec <- matrix(c(
   'infile', 'i', 1, "character",
@@ -14,9 +14,10 @@ spec <- matrix(c(
 ), byrow=TRUE, ncol=4)
 
 opt = getopt(spec)
-
+length(opt$ARGS)
 in.file <- opt$infile
 out.dir <- opt$outdir
+print(opt)
 
 if(is.null(in.file)|is.null(out.dir))
 {
@@ -24,9 +25,6 @@ if(is.null(in.file)|is.null(out.dir))
   q(status=1)
 }
   
-library(data.table)
-library(rtracklayer)
-
 message(paste('Reading in', in.file, 'and writing BigWIGs to', out.dir))
 
 # Guess the seqlengths of the genome; needed for BigWig indexing
