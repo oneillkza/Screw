@@ -11,7 +11,7 @@ inputs:
     inputBinding:
       prefix: -i
 outputs:
-  table:
+  tableDistance:
     type: File
     outputBinding:
       glob: "pairwise-euc.txt"

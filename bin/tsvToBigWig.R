@@ -2,7 +2,7 @@
 
 
 # Outstanding issues:
-# Test whether guessing seqlengths creates erroneous BigWIGs (do they load in IGV/GViz/whatever)
+# Test whethe	both modified:   bin/tsvToBigWig.R
 
 library(getopt)
 library(data.table)
@@ -21,8 +21,7 @@ if(is.null(in.file)|is.null(out.dir))
 {
   message('Usage: tsvToBigWig.R -i input_file -o out_dir' )
   q(status=1)
-}
-  
+
 message(paste('Reading in', in.file, 'and writing BigWIGs to', out.dir))
 
 # Guess the seqlengths of the genome; needed for BigWig indexing
@@ -42,7 +41,7 @@ guessSeqLengths <- function(in.grange)
 cpg.bed <- fread(in.file)
 colnames(cpg.bed) <- c('chr', 'start', 'strand', 'type', 'meth_prop', 'cov')
 cpg.bed$end <- cpg.bed$start+1
-cpg.bed <- cpg.bed[which(cpg.bed$chr=="chr19_gl000208_random" )]
+#cpg.bed <- cpg.bed[which(cpg.bed$chr=="chr19_gl000208_random" )]
 
 base.gr <- makeGRangesFromDataFrame(cpg.bed)
 seqlengths(base.gr) <- guessSeqLengths(base.gr)

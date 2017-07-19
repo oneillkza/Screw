@@ -1,4 +1,4 @@
-#!/usr/bin/Rscript
+#!/usr/bin/env Rscript
 
 library(optparse)
 library(pheatmap)
@@ -18,14 +18,19 @@ pairwiseDistances<-read.table(opt$pairwiseTable, header=TRUE)
 
 if(!is.na(opt$annotation)){
   annotations<-read.table(opt$annotation,row.names=1,header=TRUE)
+  colnames(pairwiseDistances) <- annotations[colnames(pairwiseDistances),'cell_name']
+  rownames(pairwiseDistances) <- annotations[rownames(pairwiseDistances),'cell_name']
+  rownames(annotations) <- annotations$cell_name
 }
 
+
+ 
 col.pal <- brewer.pal(9,"Blues")
-diag(pairwiseDistances)<-NA
+diag(pairwiseDistances)<-0
 
 pdf("pairwise-euc-heatmap.pdf",onefile=FALSE)
 if(!is.na(opt$annotation)){
-  pheatmap(pairwiseDistances,annotation_col=annotations,col=col.pal)
+  pheatmap(pairwiseDistances,annotation_col=annotations[,-1],col=col.pal)
 } else{
   pheatmap(pairwiseDistances,col=col.pal)
 }
