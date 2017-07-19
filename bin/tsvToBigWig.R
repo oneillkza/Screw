@@ -5,7 +5,6 @@
 # Test whethe	both modified:   bin/tsvToBigWig.R
 
 
-
 library(rtracklayer)
 library(data.table)
 library(getopt)
@@ -26,9 +25,7 @@ if(is.null(in.file)|is.null(out.dir))
   message('Usage: tsvToBigWig.R -i input_file -o out_dir' )
   q(status=1)
 }
-  
-library(data.table)
-library(rtracklayer)
+
 
 message(paste('Reading in', in.file, 'and writing BigWIGs to', out.dir))
 
