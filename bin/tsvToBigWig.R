@@ -1,14 +1,12 @@
-#!/usr/bin/Rscript
+#!/usr/bin/env Rscript
 
 
 # Outstanding issues:
 # Test whethe	both modified:   bin/tsvToBigWig.R
 
-
-library(rtracklayer)
-library(data.table)
 library(getopt)
-
+library(data.table)
+library(rtracklayer)
 
 spec <- matrix(c(
   'infile', 'i', 1, "character",
@@ -16,7 +14,6 @@ spec <- matrix(c(
 ), byrow=TRUE, ncol=4)
 
 opt = getopt(spec)
-
 in.file <- opt$infile
 out.dir <- opt$outdir
 
@@ -24,8 +21,6 @@ if(is.null(in.file)|is.null(out.dir))
 {
   message('Usage: tsvToBigWig.R -i input_file -o out_dir' )
   q(status=1)
-}
-
 
 message(paste('Reading in', in.file, 'and writing BigWIGs to', out.dir))
 
