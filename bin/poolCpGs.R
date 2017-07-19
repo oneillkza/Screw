@@ -6,15 +6,10 @@
 # in input_dir to pool (by filename). If not specified, all libraries will be pooled.
 
 
-library(data.table, lib = "/home/cfang/Library/R/3.3/library")
-library(BiocGenerics, lib = "/home/cfang/Library/R/3.3/library")
-library(S4Vectors, lib = "/home/cfang/Library/R/3.3/library")
-library(IRanges, lib = "/home/cfang/Library/R/3.3/library")
-library(GenomeInfoDb, lib = "/home/cfang/Library/R/3.3/library")
-library(GenomicRanges, lib = "/home/cfang/Library/R/3.3/library")
-library(rtracklayer, lib = "/home/cfang/Library/R/3.3/library")
-library(getopt, lib = "/home/cfang/Library/R/3.3/library")
-library(dplyr, lib = "/home/cfang/Library/R/3.3/library")
+library(data.table)
+library(rtracklayer)
+library(getopt)
+library(dplyr)
 
 spec <- matrix(c(
   'beddir', 'i', 1, "character",
