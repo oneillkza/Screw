@@ -2,9 +2,12 @@
 
 
 # Outstanding issues:
-# Test whether guessing seqlengths creates erroneous BigWIGs (do they load in IGV/GViz/whatever)
+# Test whethe	both modified:   bin/tsvToBigWig.R
 
 
+
+library(rtracklayer)
+library(data.table)
 library(getopt)
 
 
@@ -46,7 +49,7 @@ guessSeqLengths <- function(in.grange)
 cpg.bed <- fread(in.file)
 colnames(cpg.bed) <- c('chr', 'start', 'strand', 'type', 'meth_prop', 'cov')
 cpg.bed$end <- cpg.bed$start+1
-cpg.bed <- cpg.bed[which(cpg.bed$chr=="chr19_gl000208_random" )]
+#cpg.bed <- cpg.bed[which(cpg.bed$chr=="chr19_gl000208_random" )]
 
 base.gr <- makeGRangesFromDataFrame(cpg.bed)
 seqlengths(base.gr) <- guessSeqLengths(base.gr)

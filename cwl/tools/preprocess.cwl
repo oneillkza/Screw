@@ -3,7 +3,7 @@ class: Workflow
 
 inputs:
   toConvert: File
-
+  typeCheck: string
 
 outputs:
   converted: 
@@ -24,6 +24,7 @@ steps:
     run: interconverter.cwl
     in:
       toConvert: toConvert
+      typeCheck: typeCheck
     out: [converted]
   mergeSymmetric:
     run: symmetriccpgs.cwl
