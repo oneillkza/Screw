@@ -17,7 +17,7 @@ bed.file <- opt$bedfile
 
 if(is.null(in.file)|is.null(out.dir))
 {
-  message('Usage: subsetByBed.R -i input_file -o out_dir' )
+  message('Usage: subsetByBed.R -i input_file -b bed_file -o out_dir' )
   q(status=1)
 }
 

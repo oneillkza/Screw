@@ -19,4 +19,4 @@ outputs:
   subsetted:
     type: File
     outputBinding:
-      glob: "*.subset"
+      glob: "*.sym"
