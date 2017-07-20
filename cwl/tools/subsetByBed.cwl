@@ -1,22 +1,22 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: interconverter.sh
+baseCommand: subsetByBed.R
 hints:
   - class: DockerRequirement
     dockerPull: "quay.io/epigenomicscrew/screw"
 arguments: ["-d", $(runtime.outdir)]
 
 inputs:
-  toConvert:
+  toSubset:
     type: File
     inputBinding:
       prefix: -i
-  typeCheck:
-    type: string
+  bedFile:
+    type: File
     inputBinding:
-      prefix: -c
+      prefix: -b
 outputs:
-  converted:
+  subsetted:
     type: File
     outputBinding:
-      glob: "*.meth"
+      glob: "*.subset"
