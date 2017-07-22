@@ -15,10 +15,6 @@ while getopts ":d:i:f:" opt; do
   esac
 done
 
-echo Format is $format
-echo
-
-
 case $format in
 	farlik2016 )
 	awk -F "\t" '{
