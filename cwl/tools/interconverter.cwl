@@ -11,10 +11,10 @@ inputs:
     type: File
     inputBinding:
       prefix: -i
-  typeCheck:
+  format:
     type: string
     inputBinding:
-      prefix: -c
+      prefix: -f
 outputs:
   converted:
     type: File
