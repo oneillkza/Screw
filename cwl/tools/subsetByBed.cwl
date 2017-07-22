@@ -1,17 +1,22 @@
 cwlVersion: v1.0
 class: CommandLineTool
-baseCommand: pairwise-distance.sh
+baseCommand: subsetByBed.R
 hints:
   - class: DockerRequirement
     dockerPull: "quay.io/epigenomicscrew/screw"
-stdout: pairwise-euc.txt
+arguments: ["-d", $(runtime.outdir)]
+
 inputs:
-  pairDirectory:
-    type: Directory
+  toSubset:
+    type: File
     inputBinding:
       prefix: -i
+  bedFile:
+    type: File
+    inputBinding:
+      prefix: -b
 outputs:
-  tableDistance:
+  subsetted:
     type: File
     outputBinding:
-      glob: "pairwise-euc.txt"
+      glob: "*.sym"

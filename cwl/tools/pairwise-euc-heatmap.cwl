@@ -11,12 +11,12 @@ inputs:
       position: 1
       prefix: -i
   annotation:
-    type: File?
+    type: File
     inputBinding:
       position: 2
       prefix: -a
 outputs:
-  table:
+  tableHeat:
     type: File
     outputBinding:
       glob: "*.pdf"
