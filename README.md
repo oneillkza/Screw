@@ -2,6 +2,8 @@
 [![Docker Repository on Quay](https://quay.io/repository/epigenomicscrew/screw/status "Docker Repository on Quay")](https://quay.io/repository/ncbi-hackathons/screw)
 [![Travis Build Status](https://travis-ci.org/Epigenomics-Screw/Screw.svg?branch=master)](https://travis-ci.org/Epigenomics-Screw/Screw)
 
+*We are having some issues with quay.io builds right now, so please bear with us while we figure this out.*
+
 # Single Cell Reproducible Epigenomics Workflow (SCREW)
 
 A CWL Pipeline and Docker Image for Performing Standard Single-Cell DNA Methylation Analyses
